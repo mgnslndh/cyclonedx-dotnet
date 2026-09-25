@@ -188,7 +188,7 @@ namespace CycloneDX.Services
                 Console.WriteLine();
                 var projectPackages = await _projectFileService.GetProjectDotnetDependencysAsync(projectFilePath, baseIntermediateOutputPath, excludeTestProjects, framework, runtime, configuration).ConfigureAwait(false);
                 directReferencePackages.UnionWith(projectPackages.Where(p => p.IsDirectReference));
-                packages.UnionWith(projectPackages);
+                DevDependencyHelper.MergePackageSets(packages, projectPackages);
             }
 
             // Ensure packages which were discovered later are reflected as direct references in the final list.

@@ -325,7 +325,7 @@ namespace CycloneDX.Services
                     project.Dependencies.Add(dependency.Name, dependency.Version);
                 }
 
-                dotnetDependencys.UnionWith(projectDotnetDependencys);
+                DevDependencyHelper.MergePackageSets(dotnetDependencys, projectDotnetDependencys);
             }
 
             //When there is a project.assets.json, the project references are already added, so check before adding

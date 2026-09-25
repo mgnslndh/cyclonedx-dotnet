@@ -83,7 +83,15 @@ listed project are included.
    (corresponds to `<PrivateAssets>all</PrivateAssets>` / `developmentDependency="true"`).
 6. Version ranges in dependency dictionaries are resolved to concrete versions already
    present in the package set.
-7. If `NETStandard.Library` appears in dependency dicts but not in the resolved set, all
+7. `IsDevDependency` is propagated per target (`DevDependencyHelper.MarkTransitiveDevDependencies`):
+   a package is a dev dependency if it is reachable from a dev-flagged direct reference and
+   *not* reachable from any non-dev root (non-dev direct references, and non-dev packages
+   nothing depends on, such as project references). A dev-flagged direct reference that a
+   shipped package also depends on is therefore not a dev dependency.
+   When package sets are merged (targets, projects of a solution, `-rs`, `packages.config`
+   files), a package stays a dev dependency only if it is one in every merged set
+   (`DevDependencyHelper.MergePackageSets`).
+8. If `NETStandard.Library` appears in dependency dicts but not in the resolved set, all
    references to it are stripped (SDK-provided; not a real package in the output).
 
 If `project.assets.json` yields zero packages, the tool falls back to `packages.config` in

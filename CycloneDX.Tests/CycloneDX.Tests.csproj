@@ -126,6 +126,9 @@
     <None Update="FunctionalTests\SolutionScan_MulitpleVersionsOfOnePackage\solution1sln.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="FunctionalTests\Issue1105-TransitiveDevDependencies\project.assets.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="FunctionalTests\TestcaseFiles\DevDependencies.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

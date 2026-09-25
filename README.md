@@ -122,6 +122,13 @@ Options:
   -?, -h, --help                                                               Show help and usage information
 ```
 
+*   `-ed, --exclude-dev`  
+    Excludes development dependencies (`PrivateAssets="all"` in PackageReference projects) together with
+    all transitive dependencies that are only reachable through them. A package that is also required by
+    a non-development dependency is kept.
+    For `packages.config` projects there is no dependency graph available, so only packages explicitly marked
+    with `developmentDependency="true"` are excluded; their transitive dependencies remain in the BOM.
+
 *   `-ef, --exclude-filter`  
     The exclude filter may be used to exclude any packages, which are resolved by NuGet, but do not exist
     in the final binary output. For example, an application targets .NET 8, but has a dependency to a library,

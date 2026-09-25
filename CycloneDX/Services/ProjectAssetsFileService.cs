@@ -113,8 +113,9 @@ namespace CycloneDX.Services
                     }
 
                     ResolveDependencyVersionRanges(runtimePackages);
+                    DevDependencyHelper.MarkTransitiveDevDependencies(runtimePackages);
 
-                    packages.UnionWith(runtimePackages);
+                    DevDependencyHelper.MergePackageSets(packages, runtimePackages);
                 }
             }
 

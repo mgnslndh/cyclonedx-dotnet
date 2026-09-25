@@ -88,7 +88,7 @@ namespace CycloneDX.Services
             foreach (var packageFile in packageFiles)
             {
                 var newPackages = await GetDotnetDependencysAsync(packageFile).ConfigureAwait(false);
-                packages.UnionWith(newPackages);
+                DevDependencyHelper.MergePackageSets(packages, newPackages);
             }
 
             return packages;

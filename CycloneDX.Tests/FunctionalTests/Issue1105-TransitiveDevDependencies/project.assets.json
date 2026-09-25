@@ -1,0 +1,93 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Runtime.Pkg/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Shared.Pkg": "1.0.0",
+          "DevAndRuntime.Pkg": "1.0.0"
+        }
+      },
+      "Dev.Tool/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "DevOnly.Pkg": "1.0.0",
+          "Shared.Pkg": "1.0.0"
+        }
+      },
+      "DevOnly.Pkg/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "DevOnly.Leaf": "1.0.0"
+        }
+      },
+      "DevOnly.Leaf/1.0.0": {
+        "type": "package"
+      },
+      "Shared.Pkg/1.0.0": {
+        "type": "package"
+      },
+      "DevAndRuntime.Pkg/1.0.0": {
+        "type": "package"
+      }
+    }
+  },
+  "libraries": {
+    "Runtime.Pkg/1.0.0": { "type": "package", "path": "runtime.pkg/1.0.0", "files": [] },
+    "Dev.Tool/1.0.0": { "type": "package", "path": "dev.tool/1.0.0", "files": [] },
+    "DevOnly.Pkg/1.0.0": { "type": "package", "path": "devonly.pkg/1.0.0", "files": [] },
+    "DevOnly.Leaf/1.0.0": { "type": "package", "path": "devonly.leaf/1.0.0", "files": [] },
+    "Shared.Pkg/1.0.0": { "type": "package", "path": "shared.pkg/1.0.0", "files": [] },
+    "DevAndRuntime.Pkg/1.0.0": { "type": "package", "path": "devandruntime.pkg/1.0.0", "files": [] }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Runtime.Pkg >= 1.0.0",
+      "Dev.Tool >= 1.0.0",
+      "DevAndRuntime.Pkg >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\user\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\ProjectPath\\Project.csproj",
+      "projectName": "Project",
+      "projectPath": "C:\\ProjectPath\\Project.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\ProjectPath\\obj\\",
+      "projectStyle": "PackageReference",
+      "originalTargetFrameworks": [ "net8.0" ],
+      "sources": { "https://api.nuget.org/v3/index.json": {} },
+      "frameworks": {
+        "net8.0": { "targetAlias": "net8.0", "projectReferences": {} }
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Runtime.Pkg": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "Dev.Tool": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.0.0, )"
+          },
+          "DevAndRuntime.Pkg": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.0.0, )"
+          }
+        }
+      }
+    }
+  }
+}
