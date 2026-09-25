@@ -9,9 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **`--exclude-dev` now excludes transitive dependencies of development dependencies** (fixes #1105) — packages pulled in only by a `PrivateAssets="all"` reference (e.g. the Roslyn/MSBuild packages behind `Microsoft.EntityFrameworkCore.Design`) are no longer included in the BOM. Packages that are also needed by a non-development dependency are kept.
-- **`--exclude-dev` keeps a development dependency that another package in the same project depends on** — a `PrivateAssets="all"` package is still shipped when a regular dependency of the project needs it, so it now stays in the BOM. Previously it was dropped, leaving the dependency graph pointing at a component missing from the BOM.
-- **`--exclude-dev` keeps a package that is a development dependency in one project but shipped by another** — applies to solution scans, `--recursive` and directories with several `packages.config` files. Previously whichever project was scanned first decided.
+- **`--exclude-dev` now excludes transitive dependencies of development dependencies** (fixes #1105)
+  — packages pulled in only by a `PrivateAssets="all"` reference (e.g. the Roslyn/MSBuild packages
+  behind `Microsoft.EntityFrameworkCore.Design`) are no longer included in the BOM. Packages that
+  are also needed by a non-development dependency are kept.
+- **`--exclude-dev` keeps a development dependency that another package in the same project depends
+  on** — a `PrivateAssets="all"` package is still shipped when a regular dependency of the project
+  needs it, so it now stays in the BOM. Previously it was dropped, leaving the dependency graph
+  pointing at a component missing from the BOM.
+- **`--exclude-dev` keeps a package that is a development dependency in one project but shipped by
+  another** — applies to solution scans, `--recursive` and directories with several
+  `packages.config` files. Previously whichever project was scanned first decided.
 
 ## [6.2.0] - 2026-04-27
 
